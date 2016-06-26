@@ -1,1 +1,3 @@
-# gossip-bot
+# Gossib
+
+The gossip Facebook Messenger Bot
