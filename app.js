@@ -1,9 +1,11 @@
 /* jshint esversion: 6 */
-const db = require('./db');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const emoji = require('node-emoji');
+const Messenger =  require('./messenger');
+const db = require('./db');
 const app = express();
 
 
@@ -56,29 +58,7 @@ app.post('/webhook', function(req, res) {
     }
 });
 
-function receivedPostback(event) {
-    const senderID = event.sender.id;
-    const recipientID = event.recipient.id;
-    const timeOfPostback = event.timestamp;
 
-    // The 'payload' param is a developer-defined field which is set in a postback
-    // button for Structured Messages.
-    const payload = event.postback.payload;
-
-    console.log(`Received postback for user ${senderID} and page ${recipientID} with payload ${payload} at ${timeOfPostback}`);
-
-    switch (payload) {
-        case 'gossipGuy':
-            //sendTextMessage(senderID, `Mira...cuentamelo ahorita que ando en desarrollo todavía ¯|_ツ_|¯`);
-            sendTextMessage(senderID, `Escribe en un sólo mensaje el cuento y al inicio o al final la palabra "chisme" `);
-
-            break;
-        case 'gossibTalk':
-             db.findOneRandom((error, result) => sendTextMessage(senderID,(error) ? error : result.message));
-             //sendTextMessage(senderID, `Mira...te digo ahorita que todavía el cabrón este me sigue desarrollando ¯|_ツ_|¯`);
-            break;
-    }
-}
 
 function receivedDeliveryConfirmation(event) {
     const senderID = event.sender.id;
