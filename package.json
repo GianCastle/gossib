@@ -1,0 +1,31 @@
+{
+  "name": "gossip",
+  "version": "0.1.1",
+  "description": "The gossip Facebook Messenger bot",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "modulus": "^6.0.0",
+    "mongoose": "^4.5.1",
+    "mongoose-simple-random": "^0.3.3",
+    "node-emoji": "^1.3.1",
+    "request": "^2.72.0"
+  },
+  "devDependencies": {
+    "tern-node-express": "^0.4.0"
+  },
+  "scripts": {
+    "test": "how about no"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/giancastle/gossip-bot"
+  },
+  "keywords": [
+    "messenger",
+    "entertaiment"
+  ],
+  "author": "giancarlos castillo",
+  "license": "MIT"
+}
