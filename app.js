@@ -10,11 +10,16 @@ const messenger =  require('./messenger');
 const app = express();
 
 app.use(bodyParser.json());
+app.use( bodyParser.urlencoded({ extended : true }));
+//app.use(express.static( path.join( __dirname, 'public' )));
+
+
 app.set('view engine', 'pug');
 app.set( 'views', path.join( __dirname, 'views' ));
-app.use( bodyParser.urlencoded({ extended : true }));
+app.use(express.static('public'));
 
-app.get('/', (req, res) => res.render('index',{pageTitle: 'Gossib Dashboard'})); //Main route. Nothing there
+app.get('/', (req, res) =>
+  res.render('index',{pageTitle: 'Gossib Dashboard'}));
 
 //Verify Facebook App token route
 app.get('/webhook', function(req, res) {

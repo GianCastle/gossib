@@ -14,10 +14,9 @@ const Gossip = mongoose.model('Gossip', gossipSchema);
 
 
 
-Gossip.findOneRandom((error, result) =>
-      console.log((error) ? error : result));
+Gossip.findOneRandom((error, result) => console.log((error) ? error : result));
 
-let saveGossip = function(gossipText) {
+let saveGossip = (gossipText) => {
         const gossip = new Gossip( { message: gossipText} );
         gossip.save( (error) =>
           console.log((error) ? error : 'A gossip message was saved on database'));
